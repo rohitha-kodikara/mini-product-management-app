@@ -8,6 +8,7 @@ import CreateProduct from "./features/products/CreateProduct";
 import Error from "./features/ui/Error";
 import { loader as productsLoader } from "./features/products/Products";
 import { loader as productDetailsLoader } from "./features/products/ProductDetails";
+import { action as createProduct } from "./features/products/CreateProduct";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
         loader: productDetailsLoader,
         errorElement: <Error />,
       },
-      { path: "/products/create", element: <CreateProduct /> },
+      {
+        path: "/products/create",
+        element: <CreateProduct />,
+        action: createProduct,
+      },
     ],
   },
 ]);
